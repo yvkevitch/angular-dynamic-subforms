@@ -1,0 +1,16 @@
+<form [formGroup]="drugGroup">
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-3">
+            <button class="btn btn-danger" type="button" (click)="removeDrug()">-</button>
+            <input type="text" class="form-control" formControlName="name" placeholder="drug name">
+        </div>
+    </div>
+    <div class="col-4">
+        <input type="text" class="form-control" formControlName="lotNumber" placeholder="drug lot number">
+    </div>
+    <div class="col-4">
+        <input type="date" class="form-control" formControlName="expirationDate" placeholder="drug expiration date">
+    </div>
+</div>
+</form>

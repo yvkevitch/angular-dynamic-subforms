@@ -1,0 +1,17 @@
+<form [formGroup]="drugForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Drugs</h1>
+            </div>
+        </div>
+        <app-one-drug *ngFor="let drugFormGroup of drugsFormGroups" [drugGroup]="drugFormGroup"
+            [parentComponent]="this">
+        </app-one-drug>
+        <div class="row mt-3">
+            <div class="col-12">
+                <button class="btn btn-success" (click)="addDrug()">+</button>
+            </div>
+        </div>
+    </div>
+</form>
