@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DrugFormComponent } from '../drug-form.component';
 
@@ -7,20 +7,14 @@ import { DrugFormComponent } from '../drug-form.component';
   templateUrl: './one-drug.component.html',
   styleUrls: ['./one-drug.component.less']
 })
-export class OneDrugComponent implements OnInit {
+export class OneDrugComponent {
 
   @Input() drugGroup : FormGroup;
   @Input() parentComponent : DrugFormComponent;
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.drugGroup);
-    console.log(this.parentComponent);
-  }
-
   removeDrug(){
-    console.log(this.drugGroup.controls['name'].value);
     this.parentComponent.removeDrug(this.drugGroup);
   }
 

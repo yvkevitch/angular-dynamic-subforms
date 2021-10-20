@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './drug-form.component.html',
   styleUrls: ['./drug-form.component.less']
 })
-export class DrugFormComponent implements OnInit {
+export class DrugFormComponent {
 
   drugForm : FormGroup;
   drugsFormGroups : FormGroup[] = [];
@@ -17,9 +17,6 @@ export class DrugFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   addDrug(){
     let drugName:string = "drug " + this.drugsFormGroups.length; 
     this.drugsFormGroups.push(
@@ -27,14 +24,9 @@ export class DrugFormComponent implements OnInit {
        name:[drugName],lotNumber:[''],expirationDate:['']
      })
     );
-    
-    console.log(this.drugsFormGroups);
   }
 
   removeDrug(formGroup:FormGroup){
-    console.log('remove ' + formGroup);
     this.drugsFormGroups = this.drugsFormGroups.filter(fg=>fg !== formGroup);
-
-    //this.drugsFormGroups.pop(); 
   }
 }
